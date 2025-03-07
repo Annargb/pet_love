@@ -1,0 +1,16 @@
+:root {
+  --main-white: #f9f9f9;
+  --white: #ffffff;
+  --white-1: rgba(255, 255, 255, 0.4);
+  --text-color: #262626;
+  --gray-color: rgba(38, 38, 38, 0.5);
+  --gray-color-1: rgba(38, 38, 38, 0.8);
+  --gray-color-2: rgba(38, 38, 38, 0.15);
+  --orange: #f6b83d;
+  --orange-1: #f9b020;
+  --light-orange: #fff4df;
+  --red: #ef2447;
+  --green: #08aa83;
+
+  --transition: 250ms ease;
+}
