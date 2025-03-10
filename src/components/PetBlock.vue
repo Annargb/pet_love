@@ -54,7 +54,7 @@ const iconSrc = computed(() => ({
 </script>
 
 <template>
-  <div class="pet-container">
+  <section class="pet-container">
     <picture>
       <source :srcset="`${src.mobile1x} 1x, ${src.mobile2x} 2x`" media="(max-width: 767px)" />
 
@@ -84,7 +84,7 @@ const iconSrc = computed(() => ({
         <p class="pet-description">{{ petInfo.description }}</p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

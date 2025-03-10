@@ -9,11 +9,13 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['openModal'])
+
 const iconColor = computed(() => (props.isHomePage ? 'var(--white)' : 'var(--text-color)'))
 </script>
 
 <template>
-  <button type="button" class="burger-btn">
+  <button type="button" class="burger-btn" @click="emit('openModal')">
     <svg class="burger-icon" :style="{ fill: iconColor }">
       <use :href="`${icons}#icon-menu`"></use>
     </svg>

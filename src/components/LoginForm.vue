@@ -30,7 +30,7 @@ const onSubmit = handleSubmit((values) => {
 </script>
 
 <template>
-  <div class="login-wrapper">
+  <section class="login-wrapper">
     <CommonTitle>Log in</CommonTitle>
     <p class="login-text">Welcome! Please enter your credentials to login to the platform:</p>
     <form @submit.prevent="onSubmit" class="login-form">
@@ -57,7 +57,7 @@ const onSubmit = handleSubmit((values) => {
       Don’t have an account?
       <router-link to="register" class="login-link">Register</router-link>
     </p>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

@@ -45,7 +45,7 @@ const onSubmit = handleSubmit(({ name, email, password }) => {
 </script>
 
 <template>
-  <div class="register-wrapper">
+  <section class="register-wrapper">
     <CommonTitle>Registration</CommonTitle>
     <p class="register-text">Thank you for your interest in our platform.</p>
     <form @submit.prevent="onSubmit" class="register-form">
@@ -88,7 +88,7 @@ const onSubmit = handleSubmit(({ name, email, password }) => {
       Already have an account?
       <router-link to="login" class="register-link">Login</router-link>
     </p>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">
