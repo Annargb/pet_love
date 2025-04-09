@@ -4,6 +4,7 @@ import { RouterLink, useRoute } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
 import BurgerMenu from './BurgerMenu.vue'
 import MobileMenu from './MobileMenu.vue'
+import UserNav from './UserNav.vue'
 
 const route = useRoute()
 const isHomePage = computed(() => route.path === '/')
@@ -28,6 +29,7 @@ const logoPaths = computed(() => ({
 
 const { width: windowWidth } = useWindowSize()
 const showBurgerMenu = computed(() => windowWidth.value < 1280)
+const isDesktop = computed(() => windowWidth.value >= 1280)
 
 const isOpen = ref(false)
 const closeModal = () => {
@@ -53,8 +55,11 @@ const openModal = () => {
         <img :src="logoPaths.mobile1x" alt="Logo" class="logo" />
       </picture>
     </router-link>
+    <UserNav v-if="isDesktop" :isHomePage="isHomePage" />
     <BurgerMenu v-if="showBurgerMenu" :isHomePage="isHomePage" @openModal="openModal" />
-    <MobileMenu :isOpen="isOpen" @closeModal="closeModal"></MobileMenu>
+    <MobileMenu :isOpen="isOpen" @closeModal="closeModal">
+      <UserNav isInMobileMenu="true" />
+    </MobileMenu>
   </header>
 </template>
 

@@ -14,4 +14,5 @@
   --green: #08aa83;
 
   --transition: 250ms ease;
+  --transition-1: 250ms ease-in-out;
 }

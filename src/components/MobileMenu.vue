@@ -10,5 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <ModalPopup v-if="props.isOpen"></ModalPopup>
+  <ModalPopup v-if="props.isOpen" modalType="mobile-menu">
+    <slot></slot>
+  </ModalPopup>
 </template>

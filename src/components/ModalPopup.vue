@@ -2,6 +2,13 @@
 import { onMounted, onUnmounted, Teleport } from 'vue'
 import icons from '/icons/icons.svg'
 
+const props = defineProps({
+  modalType: {
+    type: String,
+    default: 'default',
+  },
+})
+
 const emit = defineEmits(['closeModal'])
 
 onMounted(() => {
@@ -16,7 +23,7 @@ onUnmounted(() => {
 <template>
   <component :is="Teleport" to="body">
     <div class="overlay" @click.self="emit('closeModal')">
-      <div class="modal">
+      <div :class="['modal', props.modalType]">
         <button class="close-btn" type="button" @click="emit('closeModal')">
           <svg class="close-icon">
             <use :href="`${icons}#icon-cross`" />
@@ -28,23 +35,20 @@ onUnmounted(() => {
   </component>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .overlay {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: var(--gray-color-3);
 }
 
 .modal {
-  position: absolute;
-  right: 0;
-  max-width: 375px;
-  height: 100%;
-  min-height: 100vh;
-  padding: 40px 20px;
-  background-color: var(--orange);
+  position: relative;
+  padding: 20px;
+  width: 500px;
 }
 
 .close-btn {
@@ -65,5 +69,23 @@ onUnmounted(() => {
   width: 32px;
   height: 32px;
   fill: var(--white);
+}
+
+/* Стилі для кожної модалки */
+
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 218px;
+  height: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background-color: var(--orange);
+
+  @media screen and (min-width: 768px) {
+    max-width: 375px;
+  }
 }
 </style>
