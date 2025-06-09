@@ -9,6 +9,32 @@
   font-weight: normal;
 }
 
+/* кастомні стилі для тостів */
+.Toastify__toast--success {
+  background: #e0f8e9;
+  color: #007a33;
+}
+
+.Toastify__toast--error {
+  background: #fdecea;
+  color: #d93025;
+}
+
+.Toastify__toast--info {
+  background: #e6f0ff;
+  color: #1a73e8;
+}
+
+.Toastify__toast--warning {
+  background: #fff4e5;
+  color: #f9ab00;
+}
+
+/* Кастомні кнопки закриття */
+.Toastify__close-button {
+  color: inherit;
+}
+
 body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--main-white);

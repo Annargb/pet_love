@@ -7,17 +7,11 @@ import CommonTitle from './CommonTitle.vue'
 import FormInput from './FormInput.vue'
 import FormButton from './FormButton.vue'
 
-// const emit = defineEmits(['submit'])
-// const userData = reactive({
-//   name: '',
-//   email: '',
-//   password: '',
-//   confirmPassword: '',
-// })
-
 const { handleSubmit } = useForm({
   validationSchema: registerSchema,
 })
+
+const emit = defineEmits(['submit'])
 
 const { value: name, errorMessage: nameError } = useField('name')
 const { value: email, errorMessage: emailError } = useField('email')
@@ -40,7 +34,8 @@ watchEffect(() => {
 })
 
 const onSubmit = handleSubmit(({ name, email, password }) => {
-  console.log('Form submitted with values:', { name, email, password })
+  // console.log('Form submitted with values:', { name, email, password })
+  emit('submit', { name, email, password })
 })
 </script>
 
